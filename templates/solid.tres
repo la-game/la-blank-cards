@@ -1,0 +1,40 @@
+[gd_resource type="Resource" script_class="Deck" load_steps=8 format=3 uid="uid://dp6ebak2s0jfv"]
+
+[ext_resource type="Script" path="res://data/card.gd" id="1_sq0sp"]
+[ext_resource type="Script" path="res://data/deck.gd" id="2_dir15"]
+
+[sub_resource type="Resource" id="Resource_ry5ox"]
+script = ExtResource("1_sq0sp")
+question = "What S stand for in SOLID?"
+answer = "Single-responsibility principle."
+image = ""
+
+[sub_resource type="Resource" id="Resource_635lb"]
+script = ExtResource("1_sq0sp")
+question = "What O stand for in SOLID?"
+answer = "Open-closed principle."
+image = ""
+
+[sub_resource type="Resource" id="Resource_hicvx"]
+script = ExtResource("1_sq0sp")
+question = "What L stand for in SOLID?"
+answer = "Liskov substitution principle."
+image = ""
+
+[sub_resource type="Resource" id="Resource_mbqs4"]
+script = ExtResource("1_sq0sp")
+question = "What I stand for in SOLID?"
+answer = "Interface segregation principle."
+image = ""
+
+[sub_resource type="Resource" id="Resource_7l0hd"]
+script = ExtResource("1_sq0sp")
+question = "What D stand for in SOLID?"
+answer = "Dependency inversion principle."
+image = ""
+
+[resource]
+script = ExtResource("2_dir15")
+subject = "SOLID"
+aliases = Array[String](["design principles"])
+cards = Array[ExtResource("1_sq0sp")]([SubResource("Resource_ry5ox"), SubResource("Resource_635lb"), SubResource("Resource_hicvx"), SubResource("Resource_mbqs4"), SubResource("Resource_7l0hd")])

@@ -1,0 +1,95 @@
+[gd_scene load_steps=4 format=3 uid="uid://crv637oo8dtj8"]
+
+[ext_resource type="Texture2D" uid="uid://bkhlmke027ifo" path="res://sprites/file.svg" id="1_0pxbk"]
+[ext_resource type="Script" path="res://scenes/config_deck/card_option/card_option.gd" id="1_xk35o"]
+[ext_resource type="Texture2D" uid="uid://xx6xf6huhpfh" path="res://sprites/trash.svg" id="3_qyc3d"]
+
+[node name="CardOption" type="MarginContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 4
+theme_override_constants/margin_top = 4
+theme_override_constants/margin_right = 4
+theme_override_constants/margin_bottom = 4
+script = ExtResource("1_xk35o")
+
+[node name="Container" type="VBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="QuestionContainer" type="HBoxContainer" parent="Container"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Container/QuestionContainer"]
+layout_mode = 2
+text = "Question: "
+
+[node name="LineEdit" type="LineEdit" parent="Container/QuestionContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="AnswerContainer" type="HBoxContainer" parent="Container"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Container/AnswerContainer"]
+layout_mode = 2
+text = "Answer:    "
+
+[node name="LineEdit" type="LineEdit" parent="Container/AnswerContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="ImageContainer" type="HBoxContainer" parent="Container"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Container/ImageContainer"]
+layout_mode = 2
+text = "Image question: "
+
+[node name="Button" type="Button" parent="Container/ImageContainer"]
+layout_mode = 2
+icon = ExtResource("1_0pxbk")
+
+[node name="FileDialog" type="FileDialog" parent="Container/ImageContainer/Button"]
+title = "Open a File"
+ok_button_text = "Open"
+file_mode = 0
+access = 2
+
+[node name="ImageContainer2" type="HBoxContainer" parent="Container"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Container/ImageContainer2"]
+layout_mode = 2
+text = "Image answer:    "
+
+[node name="Button" type="Button" parent="Container/ImageContainer2"]
+layout_mode = 2
+icon = ExtResource("1_0pxbk")
+
+[node name="FileDialog" type="FileDialog" parent="Container/ImageContainer2/Button"]
+title = "Open a File"
+size = Vector2i(312, 154)
+ok_button_text = "Open"
+file_mode = 0
+access = 2
+
+[node name="Button" type="Button" parent="Container"]
+layout_mode = 2
+size_flags_horizontal = 8
+icon = ExtResource("3_qyc3d")
+
+[node name="HSeparator" type="HSeparator" parent="Container"]
+layout_mode = 2
+
+[connection signal="focus_entered" from="Container/QuestionContainer/LineEdit" to="." method="gain_focus"]
+[connection signal="text_changed" from="Container/QuestionContainer/LineEdit" to="." method="question_updated"]
+[connection signal="focus_entered" from="Container/AnswerContainer/LineEdit" to="." method="gain_focus"]
+[connection signal="text_changed" from="Container/AnswerContainer/LineEdit" to="." method="answer_updated"]
+[connection signal="pressed" from="Container/ImageContainer/Button" to="Container/ImageContainer/Button/FileDialog" method="popup_centered" binds= [Vector2(750, 400)]]
+[connection signal="file_selected" from="Container/ImageContainer/Button/FileDialog" to="." method="question_image_updated"]
+[connection signal="pressed" from="Container/ImageContainer2/Button" to="Container/ImageContainer2/Button/FileDialog" method="popup_centered" binds= [Vector2(750, 400)]]
+[connection signal="file_selected" from="Container/ImageContainer2/Button/FileDialog" to="." method="answer_image_updated"]
+[connection signal="pressed" from="Container/Button" to="." method="remove_card"]
