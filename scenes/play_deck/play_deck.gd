@@ -62,9 +62,6 @@ func draw_card() -> void:
 
 
 func flip_card() -> void:
-	if animation_player.is_playing():
-		return
-	
 	if deck.cards.is_empty():
 		return
 	

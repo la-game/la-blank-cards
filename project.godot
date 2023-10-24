@@ -19,6 +19,10 @@ config/icon="res://icon.svg"
 
 Decks="*res://scenes/singletons/decks/decks.gd"
 
+[display]
+
+window/stretch/mode="canvas_items"
+
 [rendering]
 
 renderer/rendering_method="gl_compatibility"
