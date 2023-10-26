@@ -361,5 +361,6 @@ libraries = {
 "": SubResource("AnimationLibrary_1e2fq")
 }
 
+[connection signal="pressed" from="Container/Back" to="." method="go_to_menu"]
 [connection signal="pressed" from="Container/Flip" to="AnimationPlayer" method="queue" binds= ["FLIP"]]
 [connection signal="pressed" from="Container/Draw" to="." method="draw_card"]

@@ -87,3 +87,6 @@ func flip_card() -> void:
 		else:
 			card_image.texture = null
 	
+
+func go_to_menu() -> void:
+	get_tree().change_scene_to_file("res://scenes/menu/menu.tscn")

@@ -51,12 +51,13 @@ func _import_decks() -> void:
 	
 	for file in reader.get_files():
 		var bytes = reader.read_file(file)
-		var tmp = FileAccess.open("user://temporary.tres", FileAccess.WRITE)
+		var filename = "%s/%s.tres" % [Decks.USER_TEMPLATES, Decks.decks.size()]
+		var tmp = FileAccess.open(filename, FileAccess.WRITE)
 		
 		tmp.store_buffer(bytes)
 		tmp.close()
 		
-		var deck = load("user://temporary.tres")
+		var deck = load(filename)
 		
 		if deck:
 			Decks.decks.append(deck)

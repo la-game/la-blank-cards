@@ -1,10 +1,11 @@
-[gd_scene load_steps=7 format=3 uid="uid://d4hu7mopo2lts"]
+[gd_scene load_steps=8 format=3 uid="uid://d4hu7mopo2lts"]
 
 [ext_resource type="Texture2D" uid="uid://cv8lwnqvxifr8" path="res://sprites/blank_card.svg" id="1_3i5bc"]
 [ext_resource type="Script" path="res://scenes/config_deck/config_deck.gd" id="1_xnd66"]
 [ext_resource type="Texture2D" uid="uid://b6vl0eqmner2f" path="res://sprites/arrow_left.svg" id="3_c7mlf"]
 [ext_resource type="Texture2D" uid="uid://03titiofygao" path="res://sprites/plus_text.svg" id="3_dvmiq"]
 [ext_resource type="Texture2D" uid="uid://bdktkmddnkmf0" path="res://sprites/plus_card.svg" id="4_hosud"]
+[ext_resource type="Texture2D" uid="uid://xx6xf6huhpfh" path="res://sprites/trash.svg" id="5_uxt0t"]
 [ext_resource type="Texture2D" uid="uid://cjoyw6qre8k4a" path="res://sprites/flip_card.svg" id="6_ux0il"]
 
 [node name="ConfigDeck" type="MarginContainer"]
@@ -96,6 +97,11 @@ flat = true
 [node name="Button3" type="Button" parent="Container/LeftContainer/Container/EndContainer/HBoxContainer"]
 layout_mode = 2
 icon = ExtResource("4_hosud")
+flat = true
+
+[node name="Button4" type="Button" parent="Container/LeftContainer/Container/EndContainer/HBoxContainer"]
+layout_mode = 2
+icon = ExtResource("5_uxt0t")
 flat = true
 
 [node name="RightContainer" type="HBoxContainer" parent="Container"]

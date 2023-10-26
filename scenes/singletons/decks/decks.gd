@@ -46,7 +46,7 @@ func _load_templates(path: String) -> bool:
 		
 		if not deck is Deck:
 			printerr("File is not a deck. File name: ", filename)
-			return false
+			continue
 		
 		decks.append(deck)
 	
