@@ -1,0 +1,6 @@
+[gd_resource type="SystemFont" format=3 uid="uid://rkc8yxs31ntr"]
+
+[resource]
+font_names = PackedStringArray("Ubuntu")
+font_weight = 999
+multichannel_signed_distance_field = true

@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Card" load_steps=2 format=3 uid="uid://b4uteecmodypf"]
+
+[ext_resource type="Script" path="res://src/data/deck/card/card.gd" id="1_tyq2l"]
+
+[resource]
+script = ExtResource("1_tyq2l")
+question = ""
+answer = ""
+question_image = ""
+answer_image = ""

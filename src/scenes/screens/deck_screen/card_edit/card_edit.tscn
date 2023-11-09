@@ -1,0 +1,125 @@
+[gd_scene load_steps=4 format=3 uid="uid://co5pyqqd5x874"]
+
+[ext_resource type="Script" path="res://src/scenes/screens/deck_screen/card_edit/card_edit.gd" id="1_2pa8f"]
+[ext_resource type="SystemFont" uid="uid://rkc8yxs31ntr" path="res://fonts/default.tres" id="1_kmuiq"]
+[ext_resource type="PackedScene" uid="uid://go8mvwfcwc1a" path="res://src/scenes/screens/deck_screen/card_item/card_view/card_view.tscn" id="3_5fsjm"]
+
+[node name="CardEdit" type="ScrollContainer" node_paths=PackedStringArray("question_edit", "question_image_dialog", "answer_edit", "answer_image_dialog")]
+custom_minimum_size = Vector2(210, 210)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.0
+horizontal_scroll_mode = 3
+vertical_scroll_mode = 3
+script = ExtResource("1_2pa8f")
+question_edit = NodePath("MarginContainer/VBoxContainer/Question")
+question_image_dialog = NodePath("QuestionImageDialog")
+answer_edit = NodePath("MarginContainer/VBoxContainer/Answer")
+answer_image_dialog = NodePath("AnswerImageDialog")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 3
+theme_override_constants/margin_left = 4
+theme_override_constants/margin_top = 4
+theme_override_constants/margin_right = 4
+theme_override_constants/margin_bottom = 4
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Question" type="TextEdit" parent="MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 80)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_kmuiq")
+theme_override_font_sizes/font_size = 18
+placeholder_text = "Question..."
+wrap_mode = 1
+
+[node name="QuestionCardContainer" type="SubViewportContainer" parent="MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(150, 150)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+stretch = true
+
+[node name="SubViewport" type="SubViewport" parent="MarginContainer/VBoxContainer/QuestionCardContainer"]
+handle_input_locally = false
+size = Vector2i(150, 150)
+size_2d_override = Vector2i(540, 540)
+size_2d_override_stretch = true
+render_target_update_mode = 4
+
+[node name="QuestionCardView" parent="MarginContainer/VBoxContainer/QuestionCardContainer/SubViewport" instance=ExtResource("3_5fsjm")]
+unique_name_in_owner = true
+
+[node name="Answer" type="TextEdit" parent="MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 80)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_kmuiq")
+theme_override_font_sizes/font_size = 18
+placeholder_text = "Answer..."
+wrap_mode = 1
+
+[node name="AnswerCardContainer" type="SubViewportContainer" parent="MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(150, 150)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+stretch = true
+
+[node name="SubViewport" type="SubViewport" parent="MarginContainer/VBoxContainer/AnswerCardContainer"]
+handle_input_locally = false
+size = Vector2i(150, 150)
+size_2d_override = Vector2i(540, 540)
+size_2d_override_stretch = true
+render_target_update_mode = 4
+
+[node name="AnswerCardView" parent="MarginContainer/VBoxContainer/AnswerCardContainer/SubViewport" instance=ExtResource("3_5fsjm")]
+unique_name_in_owner = true
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Save" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_fonts/font = ExtResource("1_kmuiq")
+text = "Save"
+
+[node name="Cancel" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 10
+theme_override_fonts/font = ExtResource("1_kmuiq")
+text = "Cancel"
+
+[node name="QuestionImageDialog" type="FileDialog" parent="."]
+title = "Open a File"
+initial_position = 2
+size = Vector2i(700, 400)
+ok_button_text = "Open"
+file_mode = 0
+access = 2
+
+[node name="AnswerImageDialog" type="FileDialog" parent="."]
+title = "Open a File"
+initial_position = 2
+size = Vector2i(700, 400)
+ok_button_text = "Open"
+file_mode = 0
+access = 2
+
+[connection signal="gui_input" from="MarginContainer/VBoxContainer/QuestionCardContainer" to="." method="popup_question_image_dialog"]
+[connection signal="gui_input" from="MarginContainer/VBoxContainer/AnswerCardContainer" to="." method="popup_answer_image_dialog"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/HBoxContainer/Save" to="." method="save_changes"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/HBoxContainer/Cancel" to="." method="cancel_changes"]
+[connection signal="file_selected" from="QuestionImageDialog" to="." method="set_question_image"]
+[connection signal="file_selected" from="AnswerImageDialog" to="." method="set_answer_image"]

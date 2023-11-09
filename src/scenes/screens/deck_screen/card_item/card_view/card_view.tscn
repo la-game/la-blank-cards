@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://go8mvwfcwc1a"]
+
+[ext_resource type="Texture2D" uid="uid://cuoxjfuujcmx8" path="res://sprites/blank_card.svg" id="1_ax2n3"]
+[ext_resource type="Script" path="res://src/scenes/screens/deck_screen/card_item/card_view/card_view.gd" id="1_eqt72"]
+
+[node name="CardView" type="Node2D" node_paths=PackedStringArray("card_image")]
+script = ExtResource("1_eqt72")
+card_image = NodePath("Card/CardImage")
+
+[node name="Card" type="Sprite2D" parent="."]
+position = Vector2(270, 270)
+texture = ExtResource("1_ax2n3")
+
+[node name="CardImage" type="Sprite2D" parent="Card"]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+anchor_mode = 0

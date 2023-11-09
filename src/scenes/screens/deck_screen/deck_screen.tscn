@@ -1,0 +1,112 @@
+[gd_scene load_steps=6 format=3 uid="uid://gprkhd182drl"]
+
+[ext_resource type="SystemFont" uid="uid://rkc8yxs31ntr" path="res://fonts/default.tres" id="1_618eb"]
+[ext_resource type="Script" path="res://src/scenes/screens/deck_screen/deck_screen.gd" id="1_i7n6r"]
+[ext_resource type="PackedScene" uid="uid://dn6e20mfhwqcl" path="res://src/scenes/screens/deck_screen/card_search_bar/card_search_bar.tscn" id="3_yljoe"]
+[ext_resource type="PackedScene" uid="uid://b8k27f24puig6" path="res://src/scenes/screens/deck_screen/card_item/card_item.tscn" id="4_mkwnv"]
+[ext_resource type="PackedScene" uid="uid://co5pyqqd5x874" path="res://src/scenes/screens/deck_screen/card_edit/card_edit.tscn" id="5_7t0ew"]
+
+[node name="DeckScreen" type="MarginContainer" node_paths=PackedStringArray("cards_container", "subject_line_edit")]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 4
+theme_override_constants/margin_top = 4
+theme_override_constants/margin_right = 4
+theme_override_constants/margin_bottom = 4
+script = ExtResource("1_i7n6r")
+cards_container = NodePath("VBoxContainer/HBoxContainer2/VBoxContainer/ScrollContainer/CardsContainer")
+subject_line_edit = NodePath("VBoxContainer/HBoxContainer/Subject")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="Back" type="Button" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_618eb")
+theme_override_font_sizes/font_size = 32
+text = "Back"
+
+[node name="CardSearchBar" parent="VBoxContainer/HBoxContainer" instance=ExtResource("3_yljoe")]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="Subject" type="LineEdit" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.5
+theme_override_fonts/font = ExtResource("1_618eb")
+theme_override_font_sizes/font_size = 24
+placeholder_text = "Subject..."
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="ScrollContainer" type="ScrollContainer" parent="VBoxContainer/HBoxContainer2/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+horizontal_scroll_mode = 3
+vertical_scroll_mode = 3
+
+[node name="CardsContainer" type="GridContainer" parent="VBoxContainer/HBoxContainer2/VBoxContainer/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+columns = 3
+
+[node name="CardItem" parent="VBoxContainer/HBoxContainer2/VBoxContainer/ScrollContainer/CardsContainer" instance=ExtResource("4_mkwnv")]
+layout_mode = 2
+
+[node name="CardItem2" parent="VBoxContainer/HBoxContainer2/VBoxContainer/ScrollContainer/CardsContainer" instance=ExtResource("4_mkwnv")]
+layout_mode = 2
+
+[node name="CardItem3" parent="VBoxContainer/HBoxContainer2/VBoxContainer/ScrollContainer/CardsContainer" instance=ExtResource("4_mkwnv")]
+layout_mode = 2
+
+[node name="CardItem4" parent="VBoxContainer/HBoxContainer2/VBoxContainer/ScrollContainer/CardsContainer" instance=ExtResource("4_mkwnv")]
+layout_mode = 2
+
+[node name="CardItem5" parent="VBoxContainer/HBoxContainer2/VBoxContainer/ScrollContainer/CardsContainer" instance=ExtResource("4_mkwnv")]
+layout_mode = 2
+
+[node name="CardItem6" parent="VBoxContainer/HBoxContainer2/VBoxContainer/ScrollContainer/CardsContainer" instance=ExtResource("4_mkwnv")]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/HBoxContainer2/VBoxContainer"]
+layout_mode = 2
+
+[node name="New" type="Button" parent="VBoxContainer/HBoxContainer2/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("1_618eb")
+theme_override_font_sizes/font_size = 32
+text = "New Card"
+
+[node name="Delete" type="Button" parent="VBoxContainer/HBoxContainer2/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("1_618eb")
+theme_override_font_sizes/font_size = 32
+text = "Delete Card(s)"
+
+[node name="CardEdit" parent="VBoxContainer/HBoxContainer2" instance=ExtResource("5_7t0ew")]
+unique_name_in_owner = true
+layout_mode = 2
+
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/Back" to="." method="change_to_decks_screen"]
+[connection signal="search_finished" from="VBoxContainer/HBoxContainer/CardSearchBar" to="." method="load_search_result"]
+[connection signal="text_changed" from="VBoxContainer/HBoxContainer/Subject" to="." method="update_subject"]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer2/VBoxContainer/HBoxContainer/New" to="." method="create_new_card"]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer2/VBoxContainer/HBoxContainer/Delete" to="." method="remove_selected_cards"]
+[connection signal="saved" from="VBoxContainer/HBoxContainer2/CardEdit" to="." method="reload_cards"]

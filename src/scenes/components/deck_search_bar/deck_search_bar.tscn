@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://81nhje8unn17"]
+
+[ext_resource type="Script" path="res://src/scenes/components/deck_search_bar/deck_search_bar.gd" id="1_67qoj"]
+[ext_resource type="SystemFont" uid="uid://rkc8yxs31ntr" path="res://fonts/default.tres" id="1_y7r6o"]
+
+[node name="SearchDeckBar" type="LineEdit"]
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 23.0
+grow_horizontal = 2
+size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("1_y7r6o")
+theme_override_font_sizes/font_size = 24
+placeholder_text = "Search deck..."
+caret_blink = true
+caret_blink_interval = 0.5
+script = ExtResource("1_67qoj")
+
+[connection signal="text_changed" from="." to="." method="search_deck"]

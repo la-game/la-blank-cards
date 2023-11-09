@@ -1,0 +1,36 @@
+[gd_scene load_steps=3 format=3 uid="uid://cewj5o2mf0d11"]
+
+[ext_resource type="Script" path="res://src/scenes/screens/decks_screen/deck_item/deck_view/deck_view.gd" id="1_32u2d"]
+[ext_resource type="Texture2D" uid="uid://cuoxjfuujcmx8" path="res://sprites/blank_card.svg" id="1_xdbtr"]
+
+[node name="DeckView" type="Node2D" node_paths=PackedStringArray("front_card_image", "middle_card_image", "back_card_image")]
+script = ExtResource("1_32u2d")
+front_card_image = NodePath("Cards/FrontCard/FrontCardImage")
+middle_card_image = NodePath("Cards/MiddleCard/MiddleCardImage")
+back_card_image = NodePath("Cards/BackCard/BackCardImage")
+
+[node name="Cards" type="Node2D" parent="."]
+position = Vector2(270, 270)
+
+[node name="BackCard" type="Sprite2D" parent="Cards"]
+position = Vector2(-60, 0)
+rotation = -0.261799
+texture = ExtResource("1_xdbtr")
+
+[node name="BackCardImage" type="Sprite2D" parent="Cards/BackCard"]
+texture = ExtResource("1_xdbtr")
+
+[node name="MiddleCard" type="Sprite2D" parent="Cards"]
+position = Vector2(60, 0)
+rotation = 0.261799
+texture = ExtResource("1_xdbtr")
+
+[node name="MiddleCardImage" type="Sprite2D" parent="Cards/MiddleCard"]
+
+[node name="FrontCard" type="Sprite2D" parent="Cards"]
+texture = ExtResource("1_xdbtr")
+
+[node name="FrontCardImage" type="Sprite2D" parent="Cards/FrontCard"]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+anchor_mode = 0

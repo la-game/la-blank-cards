@@ -1,0 +1,47 @@
+[gd_scene load_steps=4 format=3 uid="uid://4ooqta03f5nm"]
+
+[ext_resource type="Script" path="res://src/scenes/screens/decks_screen/deck_item/deck_item.gd" id="1_n5poa"]
+[ext_resource type="SystemFont" uid="uid://rkc8yxs31ntr" path="res://fonts/default.tres" id="1_t0bbi"]
+[ext_resource type="PackedScene" uid="uid://cewj5o2mf0d11" path="res://src/scenes/screens/decks_screen/deck_item/deck_view/deck_view.tscn" id="2_t1ors"]
+
+[node name="DeckItem" type="MarginContainer" node_paths=PackedStringArray("checkbox")]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 4
+theme_override_constants/margin_top = 4
+theme_override_constants/margin_right = 4
+theme_override_constants/margin_bottom = 4
+script = ExtResource("1_n5poa")
+checkbox = NodePath("VBoxContainer/CheckBox")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="CheckBox" type="CheckBox" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_fonts/font = ExtResource("1_t0bbi")
+theme_override_font_sizes/font_size = 18
+text = "{Deck subject}"
+text_overrun_behavior = 1
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="VBoxContainer"]
+custom_minimum_size = Vector2(270, 270)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+stretch = true
+
+[node name="SubViewport" type="SubViewport" parent="VBoxContainer/SubViewportContainer"]
+handle_input_locally = false
+snap_2d_transforms_to_pixel = true
+size = Vector2i(270, 270)
+size_2d_override = Vector2i(540, 540)
+size_2d_override_stretch = true
+render_target_update_mode = 4
+
+[node name="DeckView" parent="VBoxContainer/SubViewportContainer/SubViewport" instance=ExtResource("2_t1ors")]
+unique_name_in_owner = true

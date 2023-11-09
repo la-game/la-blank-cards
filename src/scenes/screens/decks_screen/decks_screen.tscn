@@ -1,0 +1,106 @@
+[gd_scene load_steps=5 format=3 uid="uid://c3af7oj3pbxyj"]
+
+[ext_resource type="PackedScene" uid="uid://81nhje8unn17" path="res://src/scenes/components/deck_search_bar/deck_search_bar.tscn" id="1_358y0"]
+[ext_resource type="Script" path="res://src/scenes/screens/decks_screen/decks_screen.gd" id="1_f3vf0"]
+[ext_resource type="SystemFont" uid="uid://rkc8yxs31ntr" path="res://fonts/default.tres" id="2_rxl82"]
+[ext_resource type="PackedScene" uid="uid://4ooqta03f5nm" path="res://src/scenes/screens/decks_screen/deck_item/deck_item.tscn" id="3_6fkta"]
+
+[node name="DecksScreen" type="MarginContainer" node_paths=PackedStringArray("decks_container")]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 4
+theme_override_constants/margin_top = 4
+theme_override_constants/margin_right = 4
+theme_override_constants/margin_bottom = 4
+script = ExtResource("1_f3vf0")
+decks_container = NodePath("VBoxContainer/ScrollContainer/DecksContainer")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="Back" type="Button" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_rxl82")
+theme_override_font_sizes/font_size = 32
+text = "Back"
+
+[node name="SearchBar" parent="VBoxContainer/HBoxContainer" instance=ExtResource("1_358y0")]
+layout_mode = 2
+
+[node name="ScrollContainer" type="ScrollContainer" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+follow_focus = true
+horizontal_scroll_mode = 0
+
+[node name="DecksContainer" type="GridContainer" parent="VBoxContainer/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+columns = 4
+
+[node name="DeckItem" parent="VBoxContainer/ScrollContainer/DecksContainer" instance=ExtResource("3_6fkta")]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="DeckItem2" parent="VBoxContainer/ScrollContainer/DecksContainer" instance=ExtResource("3_6fkta")]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="DeckItem3" parent="VBoxContainer/ScrollContainer/DecksContainer" instance=ExtResource("3_6fkta")]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="DeckItem4" parent="VBoxContainer/ScrollContainer/DecksContainer" instance=ExtResource("3_6fkta")]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="DeckItem5" parent="VBoxContainer/ScrollContainer/DecksContainer" instance=ExtResource("3_6fkta")]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="GridContainer" type="GridContainer" parent="VBoxContainer"]
+layout_mode = 2
+columns = 2
+
+[node name="New" type="Button" parent="VBoxContainer/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("2_rxl82")
+theme_override_font_sizes/font_size = 32
+text = "New deck"
+
+[node name="Delete" type="Button" parent="VBoxContainer/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("2_rxl82")
+theme_override_font_sizes/font_size = 32
+text = "Delete deck(s)"
+
+[node name="Import" type="Button" parent="VBoxContainer/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("2_rxl82")
+theme_override_font_sizes/font_size = 32
+text = "Import deck(s)"
+
+[node name="Export" type="Button" parent="VBoxContainer/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("2_rxl82")
+theme_override_font_sizes/font_size = 32
+text = "Export deck(s)"
+
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/Back" to="." method="change_to_start_screen"]
+[connection signal="pressed" from="VBoxContainer/GridContainer/New" to="." method="create_new_deck"]
