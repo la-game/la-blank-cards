@@ -45,3 +45,5 @@ render_target_update_mode = 4
 
 [node name="DeckView" parent="VBoxContainer/SubViewportContainer/SubViewport" instance=ExtResource("2_t1ors")]
 unique_name_in_owner = true
+
+[connection signal="gui_input" from="VBoxContainer/SubViewportContainer" to="." method="select_deck"]

@@ -1,7 +1,7 @@
 extends ScrollContainer
 
 
-signal saved()
+signal saved
 
 const CardView := preload(
 	"res://src/scenes/screens/deck_screen/card_item/card_view/card_view.gd"

@@ -76,13 +76,27 @@ static func new_identifier(card: Card) -> String:
 # Copy card images to the card directory and update card with the images paths. Example:
 #	Copy:	"/home/username/image.jpg"
 #	To:		"user://decks/[deck_id]/[card_id]/question_image.jpg"
-static func save_card_images(card: Card, question_image_source: String, answer_image_source: String) -> void:
+static func save_card_images(
+	card: Card,
+	question_image_source: String,
+	answer_image_source: String
+) -> void:
 	var question_format := question_image_source.get_extension()
 	var answer_format := answer_image_source.get_extension()
 	var card_dir_path := get_card_path(card)
-	var question_image_target := "%s/%s.%s" % [card_dir_path, QUESTION_IMG_FILENAME, question_format]
-	var answer_image_target := "%s/%s.%s" % [card_dir_path, ANSWER_IMG_FILENAME, answer_format]
 	var dir := get_dir(card)
+	
+	var question_image_target := "%s/%s.%s" % [
+		card_dir_path,
+		QUESTION_IMG_FILENAME,
+		question_format
+	]
+	
+	var answer_image_target := "%s/%s.%s" % [
+		card_dir_path,
+		ANSWER_IMG_FILENAME,
+		answer_format
+	]
 	
 	# Copying means that you will make the target file equal to the source file.
 	# Before you start writing to the target file, you have to truncate it.

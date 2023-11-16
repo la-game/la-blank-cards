@@ -1,3 +1,6 @@
+# Holds information about all decks from player.
+# This methods are also dependents of acessing all decks,
+# for this reason they cannot be at DeckLib.
 extends Node
 
 
@@ -16,20 +19,20 @@ func load_decks() -> void:
 	assert(dir_access, "Fail to open decks directory. Error: %s." % DirAccess.get_open_error())
 	
 	for dir_name in dir_access.get_directories():
-		var new_deck = Deck.new()
-		new_deck.identifier = dir_name
+		var deck_path := "%s/%s/deck.tres" % [DeckLib.DECKS_PATH, dir_name]
+		var deck := load(deck_path) as Deck
 		
-		load_cards(new_deck)
-		decks.append(new_deck)
+		for card in deck.cards:
+			card.deck = deck
+		
+		decks.append(deck)
 
 
-func load_cards(deck: Deck) -> void:
-	var dir_access := DeckLib.get_dir(deck)
+func remove_deck(deck: Deck) -> void:
+	var deck_path := DeckLib.get_deck_path(deck)
+	var error := OS.move_to_trash(ProjectSettings.globalize_path(deck_path))
 	
-	assert(dir_access, "Fail to open deck directory. Error: %s." % DirAccess.get_open_error())
+	assert(error == OK, "Fail to delete deck directory. Error: " % error)
 	
-	for dir_name in dir_access.get_directories():
-		var new_card = Card.new()
-		new_card.identifier = dir_name
-		
-		deck.cards.append(new_card)
+	decks.erase(deck)
+	

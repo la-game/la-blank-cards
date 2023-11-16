@@ -90,22 +90,11 @@ func create_new_card() -> void:
 	card_edit.visible = true
 
 
-func get_selected_cards() -> Array[Card]:
-	var selected_cards: Array[Card] = []
-	
+func remove_selected_cards() -> void:
 	for card_item in cards_container.get_children():
 		if card_item is CardItem:
 			if card_item.is_selected:
-				selected_cards.append(card_item.card)
-	
-	return selected_cards
-
-
-func remove_selected_cards() -> void:
-	var selected_cards = get_selected_cards()
-	
-	for card in selected_cards:
-		CardLib.remove_card_from_deck(card)
+				CardLib.remove_card_from_deck(card_item.card)
+				card_item.queue_free()
 	
 	DeckLib.save_deck(deck)
-	reload_cards()

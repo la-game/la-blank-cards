@@ -2,7 +2,7 @@ class_name Deck
 extends Resource
 
 
-var identifier: String
+@export var identifier: String
 
 @export var subject: String = ""
 

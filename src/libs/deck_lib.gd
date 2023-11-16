@@ -49,5 +49,4 @@ static func save_deck(deck: Deck) -> void:
 	var file_path := "%s/deck.tres" % dir_path
 	var error = ResourceSaver.save(deck, file_path)
 	
-	if error:
-		print("Fail to save deck. Error: ", error)
+	assert(error == OK, "Fail to save deck. Error: %s" % error)

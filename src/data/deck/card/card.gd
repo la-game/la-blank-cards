@@ -2,7 +2,7 @@ class_name Card
 extends Resource
 
 
-var identifier: String
+@export var identifier: String
 
 @export_multiline var question: String = ""
 

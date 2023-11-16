@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="200"
+   height="200"
+   viewBox="0 0 52.916667 52.916667"
+   version="1.1"
+   id="svg1"
+   inkscape:version="1.3 (1:1.3+202307231459+0e150ed6c4)"
+   sodipodi:docname="coin.svg"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview1"
+     pagecolor="#ffffff"
+     bordercolor="#111111"
+     borderopacity="1"
+     inkscape:showpageshadow="0"
+     inkscape:pageopacity="0"
+     inkscape:pagecheckerboard="1"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:document-units="mm"
+     showgrid="true"
+     inkscape:zoom="3.0039562"
+     inkscape:cx="99.8683"
+     inkscape:cy="73.736095"
+     inkscape:window-width="1920"
+     inkscape:window-height="1011"
+     inkscape:window-x="1920"
+     inkscape:window-y="32"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="layer1">
+    <inkscape:grid
+       id="grid1"
+       units="mm"
+       originx="0"
+       originy="0"
+       spacingx="0.99999997"
+       spacingy="0.99999997"
+       empcolor="#0099e5"
+       empopacity="0.30196078"
+       color="#0099e5"
+       opacity="0.14901961"
+       empspacing="1"
+       dotted="false"
+       gridanglex="30"
+       gridanglez="30"
+       visible="true" />
+  </sodipodi:namedview>
+  <defs
+     id="defs1" />
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1">
+    <circle
+       style="fill:#ffdd55;stroke:#d4aa00;stroke-width:6.93709;stroke-linecap:round;stroke-linejoin:round;fill-opacity:1"
+       id="path1"
+       cx="26.499996"
+       cy="26.499996"
+       r="22.031458" />
+    <path
+       d="m 25.696821,38.547634 v -3.484966 q -1.851389,-0.05445 -3.103798,-0.408395 -1.225184,-0.381168 -1.824162,-0.73511 l 0.598978,-1.715257 q 0.762337,0.381169 1.851389,0.762337 1.116278,0.353942 3.049345,0.353942 2.096425,0 2.94044,-0.762337 0.871242,-0.789562 0.871242,-1.905841 0,-0.844015 -0.326716,-1.415767 -0.326715,-0.598979 -0.95292,-1.007373 -0.598979,-0.408395 -1.442994,-0.762337 -0.816789,-0.353942 -1.851388,-0.707883 -1.007373,-0.381169 -2.014746,-0.898468 -0.980147,-0.5173 -1.660805,-1.361315 -0.653431,-0.871242 -0.653431,-2.232557 0,-1.98752 1.089052,-3.131024 1.116278,-1.143505 3.430514,-1.47022 v -3.212704 h 1.824162 v 3.131025 q 1.279636,0.02723 2.259783,0.272263 0.980146,0.21781 1.633578,0.490073 l -0.5173,1.715257 q -0.5173,-0.21781 -1.442994,-0.462847 -0.925694,-0.272263 -2.423141,-0.272263 -1.878614,0 -2.804308,0.680657 -0.898468,0.680658 -0.898468,1.98752 0,0.952921 0.462847,1.524673 0.462847,0.571752 1.306862,0.980147 0.871242,0.381168 2.069199,0.816789 1.361315,0.490073 2.50482,1.116278 1.143504,0.598979 1.851388,1.551899 0.707884,0.95292 0.707884,2.532046 0,1.225183 -0.571753,2.20533 -0.544526,0.952921 -1.606351,1.551899 -1.0346,0.571752 -2.532046,0.707884 v 3.566645 z"
+       id="text1"
+       style="font-size:27.2263px;font-family:Ubuntu;-inkscape-font-specification:Ubuntu;text-align:center;text-anchor:middle;fill:#ffd42a;stroke:#d4aa00;stroke-width:4.53772;stroke-linecap:round;stroke-linejoin:round"
+       aria-label="$" />
+  </g>
+</svg>

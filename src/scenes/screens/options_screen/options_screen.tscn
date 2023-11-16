@@ -1,9 +1,91 @@
-[gd_scene format=3 uid="uid://burha6n4xbhrp"]
+[gd_scene load_steps=3 format=3 uid="uid://burha6n4xbhrp"]
 
-[node name="OptionsScreen" type="Control"]
-layout_mode = 3
+[ext_resource type="Script" path="res://src/scenes/screens/options_screen/options_screen.gd" id="1_c14yt"]
+[ext_resource type="SystemFont" uid="uid://rkc8yxs31ntr" path="res://fonts/default.tres" id="2_lkvvi"]
+
+[node name="OptionsScreen" type="MarginContainer" node_paths=PackedStringArray("window_mode_option", "resolution_size_option")]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 16
+script = ExtResource("1_c14yt")
+window_mode_option = NodePath("ScrollContainer/VBoxContainer/VideoContainer/WindowModeOption")
+resolution_size_option = NodePath("ScrollContainer/VBoxContainer/VideoContainer/ResolutionSizeOption")
+
+[node name="ScrollContainer" type="ScrollContainer" parent="."]
+layout_mode = 2
+horizontal_scroll_mode = 0
+vertical_scroll_mode = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="HBoxContainer" type="HBoxContainer" parent="ScrollContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Back" type="Button" parent="ScrollContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_lkvvi")
+theme_override_font_sizes/font_size = 32
+text = "Back"
+
+[node name="VideoLabel" type="Label" parent="ScrollContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_lkvvi")
+theme_override_font_sizes/font_size = 48
+text = "Video"
+
+[node name="VideoContainer" type="GridContainer" parent="ScrollContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+columns = 2
+
+[node name="WindowModeOption" type="OptionButton" parent="ScrollContainer/VBoxContainer/VideoContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_lkvvi")
+item_count = 3
+selected = 0
+popup/item_0/text = "Fullscreen window"
+popup/item_0/id = 0
+popup/item_1/text = "Window"
+popup/item_1/id = 1
+popup/item_2/text = "Fullscreen"
+popup/item_2/id = 2
+
+[node name="WindowModeLabel" type="Label" parent="ScrollContainer/VBoxContainer/VideoContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_lkvvi")
+text = "Window mode"
+
+[node name="ResolutionSizeOption" type="OptionButton" parent="ScrollContainer/VBoxContainer/VideoContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_lkvvi")
+alignment = 1
+item_count = 5
+selected = 0
+popup/item_0/text = "1920x1200"
+popup/item_0/id = 2
+popup/item_1/text = "1920x1080"
+popup/item_1/id = 0
+popup/item_2/text = "1680x1050"
+popup/item_2/id = 1
+popup/item_3/text = "1600x1200"
+popup/item_3/id = 3
+popup/item_4/text = "1600x900"
+popup/item_4/id = 4
+
+[node name="ResolutionSizeLabel" type="Label" parent="ScrollContainer/VBoxContainer/VideoContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_lkvvi")
+text = "Resolution size"
+
+[connection signal="pressed" from="ScrollContainer/VBoxContainer/HBoxContainer/Back" to="." method="change_to_start_screen"]
+[connection signal="item_selected" from="ScrollContainer/VBoxContainer/VideoContainer/WindowModeOption" to="." method="change_window_mode"]
+[connection signal="item_selected" from="ScrollContainer/VBoxContainer/VideoContainer/ResolutionSizeOption" to="." method="change_resolution_size"]
