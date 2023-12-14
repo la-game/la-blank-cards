@@ -1,0 +1,73 @@
+[gd_scene load_steps=4 format=3 uid="uid://cerap2no36eh2"]
+
+[ext_resource type="Script" path="res://src/scenes/screens/start_screen/start_screen.gd" id="1_fm3go"]
+[ext_resource type="Theme" uid="uid://ehcyfjpemrbw" path="res://themes/default.tres" id="1_h5f4r"]
+[ext_resource type="SystemFont" uid="uid://rkc8yxs31ntr" path="res://fonts/default.tres" id="3_cuutq"]
+
+[node name="StartScreen" type="MarginContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_h5f4r")
+theme_override_constants/margin_left = 4
+theme_override_constants/margin_top = 4
+theme_override_constants/margin_right = 4
+theme_override_constants/margin_bottom = 4
+script = ExtResource("1_fm3go")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="Title" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 6
+theme_override_fonts/font = ExtResource("3_cuutq")
+theme_override_font_sizes/font_size = 128
+text = "Blank Cards
+Game"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="GridContainer" type="GridContainer" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 6
+
+[node name="Play" type="Button" parent="VBoxContainer/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+theme_override_fonts/font = ExtResource("3_cuutq")
+theme_override_font_sizes/font_size = 48
+text = "Play"
+
+[node name="Decks" type="Button" parent="VBoxContainer/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("3_cuutq")
+theme_override_font_sizes/font_size = 48
+text = "Decks"
+
+[node name="Options" type="Button" parent="VBoxContainer/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+theme_override_fonts/font = ExtResource("3_cuutq")
+theme_override_font_sizes/font_size = 48
+text = "Options"
+
+[node name="Exit" type="Button" parent="VBoxContainer/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+theme_override_fonts/font = ExtResource("3_cuutq")
+theme_override_font_sizes/font_size = 48
+text = "Exit"
+
+[connection signal="pressed" from="VBoxContainer/GridContainer/Play" to="." method="change_to_play_screen"]
+[connection signal="pressed" from="VBoxContainer/GridContainer/Decks" to="." method="change_to_decks_screen"]
+[connection signal="pressed" from="VBoxContainer/GridContainer/Options" to="." method="change_to_options_screen"]
+[connection signal="pressed" from="VBoxContainer/GridContainer/Exit" to="." method="exit_game"]

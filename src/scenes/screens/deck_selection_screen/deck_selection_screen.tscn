@@ -1,0 +1,85 @@
+[gd_scene load_steps=5 format=3 uid="uid://boqjbb8cwiu4b"]
+
+[ext_resource type="Script" path="res://src/scenes/screens/deck_selection_screen/deck_selection_screen.gd" id="1_1nt78"]
+[ext_resource type="PackedScene" uid="uid://81nhje8unn17" path="res://src/scenes/components/deck_search_bar/deck_search_bar.tscn" id="1_vtsn6"]
+[ext_resource type="SystemFont" uid="uid://rkc8yxs31ntr" path="res://fonts/default.tres" id="2_br8fw"]
+[ext_resource type="PackedScene" uid="uid://4ooqta03f5nm" path="res://src/scenes/screens/decks_screen/deck_item/deck_item.tscn" id="4_2sssf"]
+
+[node name="DeckSelectionScreen" type="MarginContainer" node_paths=PackedStringArray("decks_container")]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 4
+theme_override_constants/margin_top = 4
+theme_override_constants/margin_right = 4
+theme_override_constants/margin_bottom = 4
+script = ExtResource("1_1nt78")
+decks_container = NodePath("VBoxContainer/ScrollContainer/GridContainer")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="Back" type="Button" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_br8fw")
+theme_override_font_sizes/font_size = 32
+text = "Back"
+
+[node name="SearchDeckBar" parent="VBoxContainer/HBoxContainer" instance=ExtResource("1_vtsn6")]
+layout_mode = 2
+
+[node name="ScrollContainer" type="ScrollContainer" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="GridContainer" type="GridContainer" parent="VBoxContainer/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+columns = 4
+
+[node name="DeckItem" parent="VBoxContainer/ScrollContainer/GridContainer" instance=ExtResource("4_2sssf")]
+layout_mode = 2
+
+[node name="DeckItem2" parent="VBoxContainer/ScrollContainer/GridContainer" node_paths=PackedStringArray("checkbox") instance=ExtResource("4_2sssf")]
+layout_mode = 2
+checkbox = NodePath("../DeckItem/VBoxContainer/CheckBox")
+
+[node name="DeckItem3" parent="VBoxContainer/ScrollContainer/GridContainer" node_paths=PackedStringArray("checkbox") instance=ExtResource("4_2sssf")]
+layout_mode = 2
+checkbox = NodePath("../DeckItem/VBoxContainer/CheckBox")
+
+[node name="DeckItem4" parent="VBoxContainer/ScrollContainer/GridContainer" node_paths=PackedStringArray("checkbox") instance=ExtResource("4_2sssf")]
+layout_mode = 2
+checkbox = NodePath("../DeckItem/VBoxContainer/CheckBox")
+
+[node name="DeckItem5" parent="VBoxContainer/ScrollContainer/GridContainer" node_paths=PackedStringArray("checkbox") instance=ExtResource("4_2sssf")]
+layout_mode = 2
+checkbox = NodePath("../DeckItem/VBoxContainer/CheckBox")
+
+[node name="DeckItem6" parent="VBoxContainer/ScrollContainer/GridContainer" node_paths=PackedStringArray("checkbox") instance=ExtResource("4_2sssf")]
+layout_mode = 2
+checkbox = NodePath("../DeckItem/VBoxContainer/CheckBox")
+
+[node name="DeckItem7" parent="VBoxContainer/ScrollContainer/GridContainer" node_paths=PackedStringArray("checkbox") instance=ExtResource("4_2sssf")]
+layout_mode = 2
+checkbox = NodePath("../DeckItem/VBoxContainer/CheckBox")
+
+[node name="DeckItem8" parent="VBoxContainer/ScrollContainer/GridContainer" node_paths=PackedStringArray("checkbox") instance=ExtResource("4_2sssf")]
+layout_mode = 2
+checkbox = NodePath("../DeckItem/VBoxContainer/CheckBox")
+
+[node name="SelectDecks" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_br8fw")
+theme_override_font_sizes/font_size = 32
+text = "Start with selected deck(s)"
+
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/Back" to="." method="change_to_play_screen"]
+[connection signal="search_finished" from="VBoxContainer/HBoxContainer/SearchDeckBar" to="." method="load_search_result"]
+[connection signal="pressed" from="VBoxContainer/SelectDecks" to="." method="change_to_gaming_screen"]

@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://btyx30n5k4j5u"]
+
+[ext_resource type="Script" path="res://src/singletons/user_config/user_config.gd" id="1_8qnv4"]
+
+[node name="UserConfig" type="Node"]
+script = ExtResource("1_8qnv4")
+
+[node name="Window" type="Window" parent="."]
