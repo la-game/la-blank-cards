@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://boqjbb8cwiu4b"]
 
-[ext_resource type="Script" path="res://src/scenes/screens/play_screen/deck_selection_screen/deck_selection_screen.gd" id="1_1nt78"]
+[ext_resource type="Script" path="res://src/scenes/screens/deck_selection_screen/deck_selection_screen.gd" id="1_1nt78"]
 [ext_resource type="PackedScene" uid="uid://81nhje8unn17" path="res://src/scenes/components/deck_search_bar/deck_search_bar.tscn" id="1_vtsn6"]
 [ext_resource type="SystemFont" uid="uid://rkc8yxs31ntr" path="res://fonts/default.tres" id="2_br8fw"]
 [ext_resource type="PackedScene" uid="uid://4ooqta03f5nm" path="res://src/scenes/screens/decks_screen/deck_item/deck_item.tscn" id="4_2sssf"]

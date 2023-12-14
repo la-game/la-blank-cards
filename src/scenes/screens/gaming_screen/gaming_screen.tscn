@@ -1,6 +1,6 @@
 [gd_scene load_steps=13 format=3 uid="uid://cp0t033vpt106"]
 
-[ext_resource type="Script" path="res://src/scenes/screens/play_screen/deck_selection_screen/gaming_screen/gaming_screen.gd" id="1_x84yc"]
+[ext_resource type="Script" path="res://src/scenes/screens/gaming_screen/gaming_screen.gd" id="1_x84yc"]
 [ext_resource type="Texture2D" uid="uid://cuoxjfuujcmx8" path="res://sprites/blank_card.svg" id="2_c4yte"]
 [ext_resource type="SystemFont" uid="uid://rkc8yxs31ntr" path="res://fonts/default.tres" id="3_0ev7o"]
 [ext_resource type="PackedScene" uid="uid://d3m8qypqmllbp" path="res://src/scenes/components/card_animations/boomerang_animation/boomerang_animation.tscn" id="4_irduj"]

@@ -10,7 +10,7 @@ const DeckItemScene := preload(
 )
 
 const GamingScreen := preload(
-	"res://src/scenes/screens/play_screen/deck_selection_screen/gaming_screen/gaming_screen.gd"
+	"res://src/scenes/screens/gaming_screen/gaming_screen.gd"
 )
 
 @export var decks_container: GridContainer
